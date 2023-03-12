@@ -3,5 +3,6 @@
 - composer install
 - переименовать env.exaple в .env
 - php artisan jwt:secret
+- php artisan key:generate
 - php artisan migrate
 - php artisan serve
