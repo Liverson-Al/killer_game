@@ -1,0 +1,30 @@
+version: '3.0'
+
+networks:
+    local:
+        driver: bridge
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: ./.docker/php/Dockerfile
+        restart: always
+        networks:
+            - local
+        volumes:
+            - ./:/var/www
+    nginx:
+        build:
+            context: .
+            dockerfile: ./.docker/nginx/Dockerfile
+        restart: always
+        networks:
+            - local
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - php
+
+
+
